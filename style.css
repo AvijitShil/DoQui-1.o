@@ -1,0 +1,308 @@
+/* Vienna Dashboard - Dark Theme */
+
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #1a1a24;
+    --accent-primary: #6366f1;
+    --accent-secondary: #818cf8;
+    --accent-glow: rgba(99, 102, 241, 0.3);
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border: #2a2a3a;
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    background-image: 
+        radial-gradient(ellipse at top, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+/* Cards */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+/* Control Panel Grid */
+.control-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .control-panel {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Agent Control */
+.status-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.status-label {
+    color: var(--text-secondary);
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.status-badge.offline {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--danger);
+}
+
+.status-badge.online {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+.toggle-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+}
+
+.toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--accent-glow);
+}
+
+.toggle-btn.running {
+    background: linear-gradient(135deg, var(--danger), #f87171);
+}
+
+.btn-icon {
+    font-size: 1.25rem;
+}
+
+/* Speaker Status */
+.speaker-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    border-radius: var(--radius);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.speaker-badge.unknown {
+    background: rgba(148, 163, 184, 0.1);
+    border: 2px solid var(--text-secondary);
+    color: var(--text-secondary);
+}
+
+.speaker-badge.verified {
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid var(--success);
+    color: var(--success);
+    animation: pulse-success 2s infinite;
+}
+
+.speaker-badge.locked {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid var(--danger);
+    color: var(--danger);
+    animation: pulse-danger 1s infinite;
+}
+
+@keyframes pulse-success {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+    50% { box-shadow: 0 0 20px 5px rgba(16, 185, 129, 0.2); }
+}
+
+@keyframes pulse-danger {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    50% { box-shadow: 0 0 15px 3px rgba(239, 68, 68, 0.2); }
+}
+
+.badge-icon {
+    font-size: 1.5rem;
+}
+
+/* Score Display */
+.score-display {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.score-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    min-width: 80px;
+}
+
+.score-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.score-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--danger), var(--warning), var(--success));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.score-value {
+    font-weight: 600;
+    min-width: 45px;
+    text-align: right;
+    color: var(--accent-secondary);
+}
+
+/* VAD Display / Solar System */
+.vad-display {
+    text-align: center;
+}
+
+.solar-system {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+#solar-canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.vad-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.vad-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.vad-indicator.silent {
+    background: var(--text-secondary);
+}
+
+.vad-indicator.speaking {
+    background: var(--success);
+    box-shadow: 0 0 15px var(--success);
+    animation: pulse-speaking 0.5s infinite;
+}
+
+@keyframes pulse-speaking {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Connection Bar */
+.connection-bar {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.connection-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.connection-dot.connected {
+    background: var(--success);
+}
+
+.connection-dot.disconnected {
+    background: var(--danger);
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vienna Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎙️ DoQui</h1>
+            <p class="subtitle">Voice AI Dashboard</p>
+        </header>
+
+        <!-- Main Control Panel -->
+        <div class="control-panel">
+            <!-- Agent Status & Control -->
+            <div class="card agent-control">
+                <h2>Agent Control</h2>
+                <div class="status-row">
+                    <span class="status-label">Status:</span>
+                    <span id="agent-status" class="status-badge offline">Offline</span>
+                </div>
+                <button id="toggle-btn" class="toggle-btn" onclick="toggleAgent()">
+                    <span class="btn-icon">▶</span>
+                    <span class="btn-text">Start Agent</span>
+                </button>
+            </div>
+
+            <!-- Speaker Verification -->
+            <div class="card speaker-status">
+                <h2>Speaker Verification</h2>
+                <div id="speaker-badge" class="speaker-badge unknown">
+                    <span class="badge-icon">❓</span>
+                    <span class="badge-text">Waiting...</span>
+                </div>
+                <div class="score-display">
+                    <span class="score-label">Confidence:</span>
+                    <div class="score-bar">
+                        <div id="score-fill" class="score-fill" style="width: 0%"></div>
+                    </div>
+                    <span id="score-value" class="score-value">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Planetary VAD Animation -->
+        <div class="card vad-display">
+            <h2>Voice Activity</h2>
+            <div class="solar-system">
+                <canvas id="solar-canvas" width="400" height="400"></canvas>
+            </div>
+            <div class="vad-status">
+                <span id="vad-indicator" class="vad-indicator silent"></span>
+                <span id="vad-text">Silent</span>
+            </div>
+        </div>
+
+        <!-- Connection Status -->
+        <div class="connection-bar">
+            <span id="connection-status" class="connection-dot disconnected"></span>
+            <span id="connection-text">Connecting...</span>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
