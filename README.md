@@ -223,15 +223,6 @@ CARTESIA_API_KEY=your_cartesia_key
 # AI
 OPENAI_API_KEY=your_openai_key
 ```
-
-### Voice Configuration
-```python
-# In src/config.py - Add your cloned voice ID
-TTS_CONFIG = {
-    "model": "cartesia/sonic-3",
-    "voice": "your-cloned-voice-id-here",  # Replace with YOUR Voice ID
-    "language": "auto"
-}
 ```
 
 ### Sydney Integration
@@ -315,7 +306,7 @@ Apache License 2.0 - See [LICENSE](LICENSE) for details.
 
 ## 📧 Contact
 
-- **GitHub**: [@yourusername](https://github.com/yourusername)
+- **GitHub**: [@AvijitShil](https://github.com/AvijitShil)
 - **Issues**: [Report Bug](https://github.com/yourusername/DoQui-1.0/issues)
 
 ---
