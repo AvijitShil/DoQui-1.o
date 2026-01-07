@@ -11,6 +11,7 @@
 Real-time multilingual assistant featuring voice verification, advanced noise cancellation, 100+ language support, and **revolutionary voice cloning - speak in ANY voice you want**
 
 ---
+<img width="1514" height="946" alt="image" src="https://github.com/user-attachments/assets/37a799f0-c439-4bbb-85f5-b56a1da16930" />
 
 ## 📋 Overview
 
